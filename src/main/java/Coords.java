@@ -12,7 +12,7 @@ public class Coords {
         this.x = x;
         this.y = y;
         this.z = z;
-        //this.isValid = (0 <= x && x < rows && 0 <= y && y < cols && 0 <= z && z < layers);
+        this.isValid = (0 <= x && x < cols && 0 <= y && y < rows && 0 <= z && z < layers);
     }
     public boolean equals(Coords c){
         return this.x == c.x && this.y == c.y && this.z == c.z;
