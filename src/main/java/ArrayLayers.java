@@ -75,11 +75,13 @@ public class ArrayLayers {
                 Cell nextCell = this.findCell(c);
                 if (nextCell != null && nextCell.isReachable){
                     cells[i] = nextCell;
+                    nextCell.isReachable = false;
                 }
             }
             i++;
         }
-        cell.isReachable = false;
+        // for the first Cell :
+        // cell.isReachable = false;
         return cells;
     }
 }

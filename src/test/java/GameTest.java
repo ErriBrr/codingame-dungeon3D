@@ -53,7 +53,6 @@ public class GameTest {
     public void Test6() throws IOException {
         this.tests[5].proceed();
     }
-    /*
     @Test
     public void Test7() throws IOException {
         this.tests[6].proceed();
@@ -65,7 +64,7 @@ public class GameTest {
     @Test
     public void Test9() throws IOException {
         this.tests[8].proceed();
-    }*/
+    }
     @Test
     public void Test10() throws IOException {
         this.tests[9].proceed();
