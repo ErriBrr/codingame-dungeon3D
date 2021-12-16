@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Solution {
@@ -12,13 +13,39 @@ public class Solution {
         if (in.hasNextLine()) {
             in.nextLine();
         }
+
+        ArrayLayers dungeon = new ArrayLayers(L, R, C);
+        int nLayer = -1;
+        int nLine = 0;
+        int nCell = 0;
+        int nCellTotal = 0;
         for (int i = 0; i < ln; i++) {
             String line = in.nextLine();
+            if (Objects.equals(line, "")) {
+                nLayer++;
+                nLine = 0;
+                nCell = 0;
+            } else {
+                for (int j = 0; j < C; j++) {
+                    Cell aCell = new Cell(j, nLine, nLayer, line.charAt(j));
+                    dungeon.layers[nLayer].cells[nCell] = aCell;
+                    dungeon.cells[nCellTotal] = aCell;
+                    nCell++;
+                    nCellTotal++;
+                }
+            }
+            nLine++;
         }
 
+
+        Layer firstStage = dungeon.getAnyaLayer();
         // Write an answer using System.out.println()
         // To debug: System.err.println("Debug messages...");
-
-        return "answer";
+        Integer result = Router.process(firstStage.getAnya(), dungeon);
+        if (result == null) {
+            return "NO PATH";
+        } else {
+            return "" + result;
+        }
     }
 }
